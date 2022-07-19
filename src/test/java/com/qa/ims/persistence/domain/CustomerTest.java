@@ -12,6 +12,11 @@ public class CustomerTest {
 	
 	private final Customer c = new Customer(1L, "john", "smith");
 
+//	@Test
+//	public void testEquals() {
+//		EqualsVerifier.simple().forClass(Customer.class).verify();
+//	}
+	
 	@Test
 	public void testEquals() {
 		Customer copy = new Customer(1L, "john", "smith");
@@ -63,6 +68,7 @@ public class CustomerTest {
 	public void testConstructor() {
 		Customer x = new Customer(1L, "john", "smith");
 		assertEquals(c.getClass(), x.getClass());
+		assertEquals(c.getId(), x.getId());
 		assertEquals(c.getFirstName(), x.getFirstName());
 		assertEquals(c.getSurname(), x.getSurname());
 	}
