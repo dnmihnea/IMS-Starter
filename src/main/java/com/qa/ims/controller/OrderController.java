@@ -41,16 +41,16 @@ public class OrderController implements CrudController<Order>{
 		return order;
 	}
 
-//	@Override
-//	public Order update() {
-//		LOGGER.info("Please enter the id of the order you would like to update");
-//		Long id = utils.getLong();
-//		LOGGER.info("Please enter the updated ID of the customer who placed this order");
-//		Long customerId = utils.getLong();
-//		Order order = orderDAO.update(new Order(id, customerId));
-//		LOGGER.info("Order Updated");
-//		return order;
-//	}
+	@Override
+	public Order update() {
+		LOGGER.info("Please enter the id of the order you would like to update");
+		Long id = utils.getLong();
+		LOGGER.info("Please enter the updated ID of the customer who placed this order");
+		Long customerId = utils.getLong();
+		Order order = orderDAO.update(new Order(id, customerId));
+		LOGGER.info("Order Updated");
+		return order;
+	}
 
 	@Override
 	public int delete() {
@@ -60,7 +60,7 @@ public class OrderController implements CrudController<Order>{
 	}
 	
 	//CHANGE BACK TO priceSum AND UNCOMMENT update
-	public Order update() {
+	public Order update2() {
 		LOGGER.info("Please enter the id of the order whose item price sum you would like to see");
 		Long i = utils.getLong();
 		double order = orderDAO.priceSum(i);
