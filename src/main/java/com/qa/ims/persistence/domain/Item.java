@@ -13,9 +13,9 @@ public class Item {
 		this.setPrice(price);
 	}
 	
-	public Item (Long id, String pruductName, double price) {
+	public Item (Long id, String productName, double price) {
 		this.setId(id);
-		this.setProductName(pruductName);
+		this.setProductName(productName);
 		this.setPrice(price);
 }
 

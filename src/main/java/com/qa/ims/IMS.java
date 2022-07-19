@@ -78,6 +78,7 @@ public class IMS {
 			Action.printActions();
 			Action action = Action.getAction(utils);
 
+
 			if (action == Action.RETURN) {
 				changeDomain = true;
 			} else {
