@@ -34,7 +34,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order\n_____\nid: " + id + ", customer id: " + customerId + ";\n";
+		return "Order\n-----\nid: " + id + ", customer id: " + customerId + ";\n";
 	}
 
 	@Override

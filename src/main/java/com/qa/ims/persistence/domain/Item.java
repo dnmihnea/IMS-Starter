@@ -45,7 +45,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item\n____\nid: " + id + ", product name: " + productName + ", price: £" + price + ";\n";
+		return "Item\n----\nid: " + id + ", product name: " + productName + ", price: £" + price + ";\n";
 	}
 
 	@Override
