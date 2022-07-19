@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.dao.ItemDAO;
 import com.qa.ims.persistence.domain.Item;
+import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.Utils;
 
 public class ItemController implements CrudController<Item> {
@@ -55,7 +56,7 @@ public class ItemController implements CrudController<Item> {
 		LOGGER.info("Product Updated");
 		return item;
 	}
-
+	
 	@Override
 	public int delete() {
 		LOGGER.info("Please enter the id of the product you would like to delete");

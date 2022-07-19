@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Item;
+import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.DBUtils;
 
 public class ItemDAO implements Dao<Item>{
@@ -118,8 +119,6 @@ public class ItemDAO implements Dao<Item>{
 			LOGGER.error(e.getMessage());
 		}
 		return 0;
-	}
-
-
+	}			
 
 }

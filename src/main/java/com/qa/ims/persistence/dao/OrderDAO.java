@@ -78,7 +78,7 @@ public class OrderDAO implements Dao<Order>{
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
 				return modelFromResultSet(resultSet);
-			}
+			}  
 		} catch (Exception e) {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
@@ -102,7 +102,6 @@ public class OrderDAO implements Dao<Order>{
 		}
 		return null;
 	}
-
 	@Override
 	public int delete(long id) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
@@ -115,7 +114,53 @@ public class OrderDAO implements Dao<Order>{
 		}
 		return 0;
 	}
-
 	
+	//Calculates the sum of all item prices in an order 
+	public double priceSum (Long id) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection.prepareStatement("SELECT SUM(price) AS s FROM orders_items oi JOIN items i ON i.id = oi.fk_item_id WHERE oi.fk_order_id = ?;");) {
+			statement.setLong(1, id);
+			try (ResultSet resultSet = statement.executeQuery();) {
+				resultSet.next();
+				double sum = resultSet.getDouble("s");
+				return sum;
+			}  
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return 0;
+	}
+	//Adds an item to an order
+	public Order addItem(Long orderId, Long itemId) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection
+						.prepareStatement("INSERT INTO orders_items (fk_order_id, fk_item_id) VALUES (?, ?);");) {
+			statement.setLong(1, orderId);
+			statement.setLong(2, itemId);
+			statement.executeUpdate();
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return null;
+	}
+	
+	//Removes an item from an order
+	public Order removeItem(Long id, Long itemId) {
+		try (Connection connection = DBUtils.getInstance().getConnection();
+				PreparedStatement statement = connection
+						.prepareStatement("DELETE FROM orders_items WHERE fk_order_id = ? AND fk_item_id = ?;");) {
+			statement.setLong(1, id);
+			statement.setLong(2, itemId);
+			statement.executeUpdate();
+		} catch (Exception e) {
+			LOGGER.debug(e);
+			LOGGER.error(e.getMessage());
+		}
+		return null;
+	}
+	
+
 
 }

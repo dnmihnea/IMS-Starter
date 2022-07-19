@@ -36,6 +36,9 @@ public class Order {
 	public String toString() {
 		return "Order\n-----\nid: " + id + ", customer id: " + customerId + ";\n";
 	}
+	//so would i have to make the function return a string value with the sum inside it?
+	//that makes sense, ill give it a try
+	//
 
 	@Override
 	public int hashCode() {

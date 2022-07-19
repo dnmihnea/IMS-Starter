@@ -3,7 +3,8 @@ package com.qa.ims;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.controller.Action;
+
 
 public class Runner {
 
@@ -13,6 +14,7 @@ public class Runner {
 		IMS ims = new IMS();
 		ims.imsSystem();
 		LOGGER.info("SO LONG!");
+		
 	}
 
 }
