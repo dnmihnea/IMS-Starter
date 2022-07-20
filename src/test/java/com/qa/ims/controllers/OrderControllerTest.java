@@ -81,6 +81,36 @@ public class OrderControllerTest {
 		Mockito.verify(dao, Mockito.times(1)).delete(ID);
 	}
 	
-	//ADD TESTS FOR PRICESUM, ADDITEM AND REMOVEITEM
+	@Test
+	public void testPriceSum() {
+		
+		final long ID = 1L;
+		
+		Mockito.when(utils.getLong()).thenReturn(ID);
+		Mockito.when(this.dao.priceSum(ID)).thenReturn(1.0);
+		
+		assertEquals(ID, this.controller.priceSum(), .0);
+		
+		Mockito.verify(utils, Mockito.times(1)).getLong();
+		Mockito.verify(dao, Mockito.times(1)).priceSum(ID);
+	}
+	
+	@Test
+	public void testAddItem() {
+		
+		final long ID = 1L;
+		final long ITEMID = 1L;
+		
+		Order test = new Order(ID, ITEMID);
+		Order test2 = new Order(1L, 1L);
+
+		Mockito.when(this.utils.getLong()).thenReturn(ID, ITEMID);
+		Mockito.when(this.dao.addItem(ID, ITEMID)).thenReturn(test);
+		
+		assertEquals(test, test2);
+		
+		Mockito.verify(utils, Mockito.times(2)).getLong();
+		Mockito.verify(dao, Mockito.times(1)).addItem(ID, ITEMID);
+	}
 
 }

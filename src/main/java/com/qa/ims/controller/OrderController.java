@@ -9,7 +9,7 @@ import com.qa.ims.persistence.dao.OrderDAO;
 import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.Utils;
 
-public class OrderController implements CrudController<Order>{
+public class OrderController implements OrderCrudController<Order>{
 	
 	public static final Logger LOGGER = LogManager.getLogger();
 
@@ -59,13 +59,12 @@ public class OrderController implements CrudController<Order>{
 		return orderDAO.delete(id);
 	}
 	
-	//CHANGE BACK TO priceSum AND UNCOMMENT update
-	public Order update2() {
+	public double priceSum() {
 		LOGGER.info("Please enter the id of the order whose item price sum you would like to see");
 		Long i = utils.getLong();
 		double order = orderDAO.priceSum(i);
 		LOGGER.info("Total Sum: "+ order+'\n');
-		return null;
+		return order;
 	}
 	
 	public Order addItem() {
