@@ -1,1 +1,0 @@
-INSERT INTO items(productName, price) VALUES ('glasses', 39.99);
