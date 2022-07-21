@@ -8,6 +8,7 @@ import com.qa.ims.utils.Utils;
 public enum OrderAction{
 	
 	CREATE("To save a new entity into the database"), READ("To read an entity from the database"),
+	READALL("To read all entities from the database"),
 	UPDATE("To change an entity already in the database"), DELETE("To remove an entity from the database"),
 	SUM("To calculate the sum of all item in an order"), ADDITEM("To add an item to an order"),
 	REMOVEITEM("To remove an item from an order"),RETURN("To return to domain selection");

@@ -32,6 +32,15 @@ public class ItemController implements CrudController<Item> {
 		}
 		return items;
 	}
+	
+	@Override
+	public Item read() {
+		LOGGER.info("Please enter the item ID");
+		Long id = utils.getLong();
+		Item item = itemDAO.read(id);
+		LOGGER.info(item);
+		return item;
+	}
 
 	@Override
 	public Item create() {

@@ -2,6 +2,9 @@ package com.qa.ims.persistence.dao;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +14,7 @@ import com.qa.ims.utils.DBUtils;
 public class ItemDAOTest {
 	
 	private final ItemDAO DAO = new ItemDAO();
-
+	
 	@Before
 	public void setup() {
 		DBUtils.connect();
@@ -20,8 +23,16 @@ public class ItemDAOTest {
 	
 	@Test
 	public void testCreate() {
-		final Item created = new Item(2L, "controller", 34.99);
+		final Item created = new Item("notebook", 3.99);
 		assertEquals(created, DAO.create(created));
 	}
+	
+	@Test
+	public void testReadAll() {
+		List<Item> expected = new ArrayList<>();
+		expected.add(new Item(2L, "glasses", 39.99));
+		assertEquals(expected, DAO.readAll());
+	}
+
 
 }

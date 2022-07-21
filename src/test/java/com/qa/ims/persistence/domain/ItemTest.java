@@ -1,6 +1,7 @@
 package com.qa.ims.persistence.domain;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Objects;
 
@@ -54,11 +55,10 @@ public class ItemTest {
 	
 	@Test
 	public void testConstructor() {
-		Item x = new Item(1L, "glasses", 59.99);
-		assertEquals(i.getClass(), x.getClass());
-		assertEquals(i.getId(), x.getId());
-		assertEquals(i.getProductName(), x.getProductName());
-		assertEquals(i.getPrice(), x.getPrice(), .99);
+		Item itemOne = new Item(1L, "glasses", 59.99);
+		Item itemTwo = new Item("glasses", 59.99);
+		assertTrue(itemOne instanceof Item);
+		assertTrue(itemTwo instanceof Item);
 	}
 
 }

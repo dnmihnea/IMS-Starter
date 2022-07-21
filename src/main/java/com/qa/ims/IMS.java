@@ -58,12 +58,6 @@ public class IMS {
 		boolean changeDomain = false;
 		do {
 
-//		    if (domain == Domain.ORDER) {
-//		    	OrderCrudController<?> active = null;
-//		    	active = this.orders;
-//		    	break;
-//		    } 
-//			CrudController<?> active = null;
 			if (domain == Domain.ORDER) {
 				OrderCrudController<?> active = this.orders;
 				
@@ -105,46 +99,6 @@ public class IMS {
 			} else if (domain == Domain.STOP) {
 				return;
 			}
-			
-//			switch (domain) {
-//			case CUSTOMER:
-//				active = this.customers;
-//				break;
-//			case ITEM:
-//				active = this.items;
-//				break;
-//			case ORDER:
-//				active = this.orders;
-//				break;
-//			case STOP:
-//				return;
-//			default:
-//				break;
-//			}
-//		    
-//
-//			LOGGER.info(() ->"What would you like to do with " + domain.name().toLowerCase() + ":");
-//
-//			if(domain!=Domain.ORDER) {
-//				Action.printActions();
-//				Action action = Action.getAction(utils);
-//
-//
-//				if (action == Action.RETURN) {
-//					changeDomain = true;
-//				} else {	
-//					doAction(active, action);
-//				}
-//			} else {
-//				OrderAction.printActions();
-//				OrderAction action = OrderAction.getAction(utils);
-//				
-//				if(action == OrderAction.RETURN) {
-//					changeDomain = true;
-//				} else {
-//					doActionOrder(active, action);
-//				}
-//			}
 		} while (!changeDomain);
 	}
 
@@ -154,6 +108,9 @@ public class IMS {
 			crudController.create();
 			break;
 		case READ:
+			crudController.read();
+			break;
+		case READALL:
 			crudController.readAll();
 			break;
 		case UPDATE:
@@ -175,6 +132,9 @@ public class IMS {
 			crudController.create();
 			break;
 		case READ:
+			crudController.readOne();
+			break;
+		case READALL:
 			crudController.readAll();
 			break;
 		case UPDATE:

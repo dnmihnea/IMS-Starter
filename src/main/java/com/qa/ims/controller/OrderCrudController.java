@@ -3,9 +3,9 @@ package com.qa.ims.controller;
 import java.util.List;
 
 
-public interface OrderCrudController<T> extends CrudController<T>{
+public interface OrderCrudController<T> {
 	
-	List<T> readAll();
+	List<String> readAll();
 
 	T create();
 
@@ -15,10 +15,10 @@ public interface OrderCrudController<T> extends CrudController<T>{
 	
 	double priceSum();
 	
-	T addItem();
+	int addItem();
 	
-	T removeItem();
+	int removeItem();
 	
-	
+	String readOne();
 
 }

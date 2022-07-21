@@ -1,6 +1,7 @@
 package com.qa.ims.persistence.domain;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Objects;
 
@@ -46,10 +47,10 @@ public class OrderTest {
 	
 	@Test
 	public void testConstructor() {
-		Order x = new Order(1L, 2L);
-		assertEquals(o.getClass(), x.getClass());
-		assertEquals(o.getId(), x.getId());
-		assertEquals(o.getCustomerId(), x.getCustomerId());
+		Order ordOne = new Order(1L, 2L);
+		Order ordTwo = new Order(2L);
+		assertTrue(ordOne instanceof Order);
+		assertTrue(ordTwo instanceof Order);
 	}
 
 }
