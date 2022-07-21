@@ -92,21 +92,6 @@ public class OrderDAO implements DaoOrder<Order> {
 		return null;
 	}
 
-	// reading a single order entry
-//	public String readOne(Long id) {
-//		try (Connection connection = DBUtils.getInstance().getConnection();
-//				PreparedStatement statement = connection.prepareStatement("SELECT CONCAT(firstName,' ',surname) AS `name` FROM orders o JOIN customers c ON c.id = o.fk_customer_id WHERE o.id = ?;");) {
-//			statement.setLong(1, id);
-//			try (ResultSet resultSet = statement.executeQuery();) {
-//				resultSet.next();
-//				String order = "Customer name: " + resultSet.getString("name") + "\n";
-//				return order;
-//			}  
-//		} catch (Exception e) {
-//			LOGGER.debug(e);
-//			LOGGER.error(e.getMessage());
-//		}
-
 	public String readOne(Long id) {
 		String order = "";
 		try (Connection connection = DBUtils.getInstance().getConnection();
@@ -121,7 +106,6 @@ public class OrderDAO implements DaoOrder<Order> {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
-
 		//adding the items
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection.prepareStatement(
@@ -171,7 +155,7 @@ public class OrderDAO implements DaoOrder<Order> {
 			LOGGER.debug(e);
 			LOGGER.error(e.getMessage());
 		}
-		return 0;
+		return 1;
 	}
 
 	// Calculates the sum of all item prices in an order
