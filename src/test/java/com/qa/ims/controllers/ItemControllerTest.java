@@ -60,6 +60,19 @@ public class ItemControllerTest {
 	}
 	
 	@Test
+	public void testRead() {
+		Item item = new Item(1L, "toy", 19.99);
+		Long id = 1L;
+		Mockito.when(this.utils.getLong()).thenReturn(id);
+		Mockito.when(dao.read(id)).thenReturn(item);
+		
+		assertEquals(item, controller.read());
+		
+		Mockito.verify(utils, Mockito.times(1)).getLong();
+		Mockito.verify(dao, Mockito.times(1)).read(id);
+	}
+	
+	@Test
 	public void testUpdate() {
 		Item updated = new Item(1L, "coffee", 3.99);
 

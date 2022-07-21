@@ -3,8 +3,6 @@ package com.qa.ims;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qa.ims.controller.Action;
-
 
 public class Runner {
 
