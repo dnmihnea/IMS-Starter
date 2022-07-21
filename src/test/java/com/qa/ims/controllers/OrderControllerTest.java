@@ -56,6 +56,21 @@ public class OrderControllerTest {
 		Mockito.verify(dao, Mockito.times(1)).readAll();
 	}
 	
+	@Test
+	public void testReadOne() {
+		
+		Long id = 1L;
+		String result = "Order\n-----\nid: " + id + ", customer id: 2;\n";
+		Mockito.when(this.utils.getLong()).thenReturn(id);
+		Mockito.when(this.dao.readOne(id)).thenReturn(result);
+		
+		assertEquals(result, this.controller.readOne());
+		
+		Mockito.verify(this.utils, Mockito.times(1)).getLong();
+		Mockito.verify(this.dao, Mockito.times(1)).readOne(id);
+		
+	}
+	
 	
 	@Test
 	public void testUpdate() {
