@@ -10,7 +10,7 @@ public class Customer {
 		this.setFirstName(firstName);
 		this.setSurname(surname);
 	}
-
+	
 	public Customer(Long id, String firstName, String surname) {
 		this.setId(id);
 		this.setFirstName(firstName);

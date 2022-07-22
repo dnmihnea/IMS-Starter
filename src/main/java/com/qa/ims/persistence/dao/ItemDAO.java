@@ -11,9 +11,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Item;
-import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.DBUtils;
 
 public class ItemDAO implements Dao<Item>{
@@ -64,7 +62,7 @@ public class ItemDAO implements Dao<Item>{
 				PreparedStatement statement = connection
 						.prepareStatement("INSERT INTO items(productName, price) VALUES (?, ?)");) {
 			statement.setString(1, item.getProductName());
-			statement.setDouble(2, item.getPrice()); //???
+			statement.setDouble(2, item.getPrice()); 
 			statement.executeUpdate();
 			return readLatest();
 		} catch (Exception e) {
@@ -89,8 +87,7 @@ public class ItemDAO implements Dao<Item>{
 		}
 		return null;
 	}
-
-
+	
 	@Override
 	public Item update(Item item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();

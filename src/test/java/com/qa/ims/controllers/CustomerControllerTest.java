@@ -15,6 +15,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import com.qa.ims.controller.CustomerController;
 import com.qa.ims.persistence.dao.CustomerDAO;
 import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.utils.Utils;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -53,6 +54,19 @@ public class CustomerControllerTest {
 		assertEquals(customers, controller.readAll());
 
 		Mockito.verify(dao, Mockito.times(1)).readAll();
+	}
+	
+	@Test
+	public void testRead() {
+		Customer c = new Customer(1L, "ryan", "anderson");
+		Long id = 1L;
+		Mockito.when(this.utils.getLong()).thenReturn(id);
+		Mockito.when(dao.read(id)).thenReturn(c);
+		
+		assertEquals(c, controller.read());
+		
+		Mockito.verify(utils, Mockito.times(1)).getLong();
+		Mockito.verify(dao, Mockito.times(1)).read(id);
 	}
 
 	@Test
