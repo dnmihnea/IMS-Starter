@@ -63,7 +63,7 @@ FOREIGN KEY (fk_item_id) REFERENCES items(id)
 );
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+![Alt text](/EDR.jpeg?raw=true "Optional Title")
 
 ## Running the tests
 
