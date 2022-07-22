@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.dao.CustomerDAO;
 import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.utils.Utils;
 
 /**
@@ -41,6 +42,15 @@ public class CustomerController implements CrudController<Customer> {
 	/**
 	 * Creates a customer by taking in user input
 	 */
+	
+	@Override
+	public Customer read() {
+		LOGGER.info("Please enter the customer ID");
+		Long id = utils.getLong();
+		Customer cus = customerDAO.read(id);
+		LOGGER.info(cus);
+		return cus;
+	}
 	@Override
 	public Customer create() {
 		LOGGER.info("Please enter a first name");

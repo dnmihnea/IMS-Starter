@@ -10,7 +10,7 @@ public class Customer {
 		this.setFirstName(firstName);
 		this.setSurname(surname);
 	}
-
+	
 	public Customer(Long id, String firstName, String surname) {
 		this.setId(id);
 		this.setFirstName(firstName);
@@ -43,7 +43,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "id:" + id + " first name:" + firstName + " surname:" + surname;
+		return "Customer\n--------\nid: " + id + ", first name: " + firstName + ", surname: " + surname + ";\n";
 	}
 
 	@Override
