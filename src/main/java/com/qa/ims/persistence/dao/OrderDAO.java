@@ -30,7 +30,7 @@ public class OrderDAO implements DaoOrder<Order> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery(
-						"SELECT o.id AS id, fk_customer_id, CONCAT(firstName,' ', surname) AS name FROM orders o JOIN customers c ON c.id = o.fk_customer_id;");) {
+						"SELECT o.id AS id, fk_customer_id, CONCAT(firstName,' ', surname) AS name FROM orders o JOIN customers c ON c.id = o.fk_customer_id ORDER BY o.id;");) {
 			List<String> orders = new ArrayList<>();
 			while (resultSet.next()) {
 				Long id = resultSet.getLong("id");
