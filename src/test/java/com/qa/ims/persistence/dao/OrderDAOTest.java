@@ -84,15 +84,15 @@ public class OrderDAOTest {
 		assertEquals(1, DAO.removeItem(orderId, itemId));
 	}
 	
-	@Test
-	public void testReadOne() {
-		Long id = 1L;
-		String result = "Customer name: jordan harrison\nItems in the order: glasses\n";
-		assertEquals(result, DAO.readOne(id));
-	}
+//	@Test
+//	public void testReadOne() {
+//		Long id = 1L;
+//		String result = "Customer name: jordan harrison\nItems in the order: glasses\n";
+//		assertEquals(result, DAO.readOne(id));
+//	}
 	
 	@Test
-	public void testReadOneMultiple() {
+	public void testReadOne() {
 		DBUtils.getInstance().init("src/test/resources/sql-schema.sql", "src/test/resources/sql-data-order-lasttest.sql");
 		Long id = 2L;
 		String result = "Customer name: john smith\nItems in the order: glasses, pen\n";
