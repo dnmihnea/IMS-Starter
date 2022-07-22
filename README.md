@@ -63,7 +63,7 @@ FOREIGN KEY (fk_item_id) REFERENCES items(id)
 );
 ```
 
-![Alt text](/EDR.jpeg?raw=true "Optional Title")
+![Alt text](/ERD.jpeg?raw=true "Optional Title")
 
 ## Running the tests
 
