@@ -77,11 +77,11 @@ mvn test
 
 ## Deployment
 
-Open a terminal window inside of [*Download directory*]\IMS-Starter\target.
+Open a terminal window inside of *Download directory*.
 
 Run the following command.
 ```
-java -jar ims-0.0.1-jar-with-dependencies.jar
+java -jar IMS.jar
 ```
 
 ## Built With
