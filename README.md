@@ -1,7 +1,7 @@
-Coverage: 34%
-# Project Title
+Coverage: 74.1%
+# IMS Starter Project
 
-One Paragraph of project description goes here
+The IMS Starter links a Java project to a mySQL database with customers, items and orders. 
 
 ## Getting Started
 
@@ -9,26 +9,58 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+* [Java](https://www.java.com/en/) 
+* [mySQL](https://www.mysql.com/)
+* [Git](https://git-scm.com/)
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+#### Cloning the repo
 
 ```
-Give the example
+git clone https://github.com/dnmihnea/IMS-Starter.git
 ```
 
-And repeat
+#### Setting up the database in mySQL
 
 ```
-until finished
+CREATE DATABASE IF NOT EXISTS ims;
+
+USE ims;
+
+CREATE TABLE IF NOT EXISTS customers
+(
+id INT NOT NULL AUTO_INCREMENT,
+firstName VARCHAR(25) NOT NULL,
+surname VARCHAR(35) NOT NULL,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS items
+(
+id INT NOT NULL AUTO_INCREMENT,
+productName VARCHAR(50) NOT NULL,
+price FLOAT(6,2) NOT NULL,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS orders
+(
+id INT NOT NULL AUTO_INCREMENT,
+fk_customer_id INT NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (fk_customer_id) REFERENCES customers(id)
+);
+
+CREATE TABLE IF NOT EXISTS orders_items 
+(
+id INT NOT NULL AUTO_INCREMENT,
+fk_order_id INT NOT NULL,
+fk_item_id INT NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (fk_order_id) REFERENCES orders(id),
+FOREIGN KEY (fk_item_id) REFERENCES items(id)
+);
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
@@ -40,21 +72,6 @@ Explain how to run the automated tests for this system. Break down into which te
 ### Unit Tests 
 
 Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### Integration Tests 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
 
 ```
 Give an example
@@ -75,6 +92,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
+* **Alex Dinu** - [dnmihnea](https://github.com/dnmihnea)
 
 ## License
 
@@ -84,6 +102,6 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* QA
+* Edward Reynolds
+* Google and Youtube
