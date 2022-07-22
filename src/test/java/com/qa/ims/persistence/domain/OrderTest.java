@@ -52,5 +52,4 @@ public class OrderTest {
 		assertTrue(ordOne instanceof Order);
 		assertTrue(ordTwo instanceof Order);
 	}
-
 }

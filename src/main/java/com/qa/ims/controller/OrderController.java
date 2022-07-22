@@ -30,7 +30,6 @@ public class OrderController implements OrderCrudController<Order>{
 		}
 		return orders;
 	}
-	
 
 	@Override
 	public Order create() {

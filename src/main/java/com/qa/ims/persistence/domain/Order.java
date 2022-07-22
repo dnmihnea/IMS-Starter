@@ -53,8 +53,4 @@ public class Order {
 		Order other = (Order) obj;
 		return Objects.equals(customerId, other.customerId) && Objects.equals(id, other.id);
 	}
-	
-	
-	
-
 }

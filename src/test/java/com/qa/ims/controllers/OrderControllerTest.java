@@ -141,5 +141,4 @@ public class OrderControllerTest {
 		Mockito.verify(utils, Mockito.times(2)).getLong();
 		Mockito.verify(dao, Mockito.times(1)).removeItem(ID, ITEMID);
 	}
-
 }

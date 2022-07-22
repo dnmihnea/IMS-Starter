@@ -5,11 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-
 public class CustomerTest {
 
 	private final Customer c = new Customer(1L, "john", "smith");
-
 
 	@Test
 	public void testEquals() {
@@ -65,5 +63,4 @@ public class CustomerTest {
 		assertTrue(custOne instanceof Customer);
 		assertTrue(custTwo instanceof Customer);
 	}
-
 }

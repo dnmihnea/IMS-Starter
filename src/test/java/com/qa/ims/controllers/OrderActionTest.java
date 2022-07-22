@@ -13,5 +13,4 @@ public class OrderActionTest {
 		String sumDescription = "SUM: To calculate the sum of all item in an order";
 		assertEquals(OrderAction.SUM.getDescription(), sumDescription);
 	}
-
 }

@@ -65,9 +65,4 @@ public class Item {
 		return Objects.equals(id, other.id) && Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
 				&& Objects.equals(productName, other.productName);
 	}
-	
-	
-	
 }
-	
-	
