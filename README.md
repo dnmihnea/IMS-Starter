@@ -79,7 +79,11 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Open a command prompt inside of [*Download directory*]\IMS-Starter\target
+
+```
+java -jar ims-0.0.1-jar-with-dependencies.jar
+```
 
 ## Built With
 
