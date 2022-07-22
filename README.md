@@ -63,24 +63,23 @@ FOREIGN KEY (fk_item_id) REFERENCES items(id)
 );
 ```
 
-![Alt text](/ERD.jpeg?raw=true "Optional Title")
+![Alt text](/ERD.jpeg?raw=true "ERD")
 
-## Running the tests
+## Running unit tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+In order to run unit tests, you first need to open a terminal window inside of your *download directory*.
 
-### Unit Tests 
-
-Explain what these tests test, why and how to run them
+Run the following command.
 
 ```
-Give an example
+mvn test
 ```
 
 ## Deployment
 
-Open a command prompt inside of [*Download directory*]\IMS-Starter\target
+Open a terminal window inside of [*Download directory*]\IMS-Starter\target.
 
+Run the following command.
 ```
 java -jar ims-0.0.1-jar-with-dependencies.jar
 ```
